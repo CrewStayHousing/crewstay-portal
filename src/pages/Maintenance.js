@@ -3,8 +3,6 @@ import { supabase } from '../lib/supabase'
 import { useAuth } from '../context/AuthContext'
 
 const SEVERITIES = ['low', 'medium', 'high', 'emergency']
-const STATUSES = ['open', 'in_progress', 'resolved', 'closed']
-
 export default function Maintenance() {
   const { user } = useAuth()
   const [requests, setRequests] = useState([])
