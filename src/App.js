@@ -8,7 +8,10 @@ import Assignments from './pages/Assignments'
 import Crew from './pages/Crew'
 import Maintenance from './pages/Maintenance'
 import Invoices from './pages/Invoices'
+import Properties from './pages/Properties'
+import Reports from './pages/Reports'
 import Landlord from './pages/LandlordPortal';
+
 // Google Fonts
 const link = document.createElement('link')
 link.href = 'https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap'
@@ -28,18 +31,6 @@ function ProtectedRoute({ children }) {
   return user ? children : <Navigate to="/login" replace />
 }
 
-function ComingSoon({ title }) {
-  return (
-    <div style={{ flex: 1, padding: 32, background: '#F7F8FA', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <div style={{ textAlign: 'center' }}>
-        <div style={{ fontSize: 48, marginBottom: 16 }}>🚧</div>
-        <div style={{ fontFamily: "'Oswald', sans-serif", fontSize: 28, fontWeight: 700, color: '#1B2A4A', marginBottom: 8 }}>{title}</div>
-        <div style={{ fontSize: 16, color: '#6B7A99' }}>Coming soon.</div>
-      </div>
-    </div>
-  )
-}
-
 export default function App() {
   return (
     <BrowserRouter>
@@ -54,12 +45,12 @@ export default function App() {
                   <Route path="/" element={<Navigate to="/dashboard" replace />} />
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/projects" element={<Projects />} />
-                  <Route path="/properties" element={<ComingSoon title="Properties" />} />
+                  <Route path="/properties" element={<Properties />} />
                   <Route path="/crew" element={<Crew />} />
                   <Route path="/assignments" element={<Assignments />} />
                   <Route path="/invoices" element={<Invoices />} />
                   <Route path="/maintenance" element={<Maintenance />} />
-                  <Route path="/reports" element={<ComingSoon title="Reports" />} />
+                  <Route path="/reports" element={<Reports />} />
                 </Routes>
               </Layout>
             </ProtectedRoute>
